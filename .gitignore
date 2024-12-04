@@ -1,0 +1,32 @@
+# Archivos de compilación y carpetas
+/bin/
+/build/
+/target/
+
+# Archivos de configuración específicos del IDE
+*.iml
+.idea/
+.vscode/
+*.classpath
+*.project
+*.settings/
+
+# Archivos de logs
+*.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Librerías descargadas con Gradle o Maven
+.gradle/
+/mvnw
+/mvnw.cmd
+/.mvn/
+target/
+!**/src/main/**
+
+# Archivos generados
+*.jar
+*.war
+*.ear
