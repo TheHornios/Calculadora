@@ -51,4 +51,21 @@ public class Operaciones{
         }
         return a / b;
     }
+	
+	/**
+	 * Calcula la raíz cuadrada de un número.
+	 * 
+	 * @param a el número del cual se desea obtener la raíz cuadrada.
+	 *          Debe ser mayor o igual a 0.
+	 * @return la raíz cuadrada de a.
+	 * @throws ArithmeticException si a es negativo, ya que no se puede calcular
+	 *                             la raíz cuadrada de un número negativo en el
+	 *                             dominio de los números reales.
+	 */
+	public double raiz(double a) {
+	    if (a < 0) {
+	        throw new ArithmeticException("No se puede calcular la raíz cuadrada de un número negativo");
+	    }
+	    return Math.sqrt(a);
+	}
 }
