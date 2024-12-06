@@ -68,4 +68,40 @@ public class Operaciones{
 	    }
 	    return Math.sqrt(a);
 	}
+	
+	/**
+	 * Resuelve una ecuación de segundo grado de la forma ax^2 + bx + c = 0.
+	 * 
+	 * @param a coeficiente cuadrático. No debe ser 0.
+	 * @param b coeficiente lineal.
+	 * @param c término independiente.
+	 * @return un arreglo de doubles que contiene las soluciones. Puede tener:
+	 *         - Dos soluciones reales (en caso de discriminante positivo).
+	 *         - Una solución doble (en caso de discriminante igual a 0).
+	 *         - Un arreglo vacío si las soluciones no son reales (discriminante negativo).
+	 * @throws ArithmeticException si el coeficiente a es igual a 0, ya que no sería
+	 *                             una ecuación de segundo grado.
+	 */
+	public double[] ecuacionSegundoGrado(double a, double b, double c) {
+	    if (a == 0) {
+	        throw new ArithmeticException("El coeficiente 'a' no puede ser 0. No es una ecuación de segundo grado.");
+	    }
+
+	    double discriminante = b * b - 4 * a * c;
+
+	    if (discriminante > 0) {
+	        // Dos soluciones reales
+	        double raizDiscriminante = Math.sqrt(discriminante);
+	        double x1 = (-b + raizDiscriminante) / (2 * a);
+	        double x2 = (-b - raizDiscriminante) / (2 * a);
+	        return new double[] { x1, x2 };
+	    } else if (discriminante == 0) {
+	        // Una solución doble
+	        double x = -b / (2 * a);
+	        return new double[] { x };
+	    } else {
+	        // Sin soluciones reales
+	        return new double[0];
+	    }
+	}
 }
