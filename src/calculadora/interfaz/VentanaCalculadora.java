@@ -9,6 +9,10 @@ public class VentanaCalculadora extends JFrame {
     // Panel de display
 	private JTextField pantalla;
 
+	/**
+	 * Método que genera la estructura principal de la calculadora,
+	 * sus apartados y botones
+	 */
     public VentanaCalculadora() {
         // Configuración de la ventana
         setTitle("Calculadora");
@@ -86,13 +90,39 @@ public class VentanaCalculadora extends JFrame {
         setVisible(true);
     }
 
-    // TODO Clase interna para manejar los eventos de los botones 
+    /**
+     * Clase que controla el funcionamiento de los botones
+     */
     private class ManejadorBoton implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+        	// Se captura la acción realizada como entrada
             String comando = e.getActionCommand();
-            // Aquí puedes implementar la lógica de la calculadora
-            System.out.println("Botón presionado: " + comando);
+
+            // Switch donde se decide la acción según el boton
+            switch (comando) {
+                case "Borrar":
+                    // Elimina el último carácter del texto en la pantalla
+                    String textoActual = pantalla.getText();
+                    
+                    // Comprueba si hay algún elemento que borrar
+                    if (!textoActual.isEmpty()) {
+                    	// Borra el último elemento en la pantalla
+                        pantalla.setText(textoActual.substring(0, textoActual.length() - 1));
+                    }
+                    
+                    break;
+                case "Salir":
+                    // Cierra la aplicación
+                    System.exit(0);
+                    
+                    break;
+                default:
+                	 // Agrega el texto del botón presionado al display
+                    pantalla.setText(pantalla.getText() + comando);
+                    
+                    break;
+            }
         }
     }
 
