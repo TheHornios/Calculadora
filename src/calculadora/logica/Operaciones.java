@@ -104,4 +104,15 @@ public class Operaciones{
 	        return new double[0];
 	    }
 	}
+	
+	// TODO: Función logaritmo 
+	
+    public double potenciar(double base, double exponente) {
+      return Math.pow(base, exponente);
+    }
+
+    //public double logaritmo(double valor) {
+     //   if (valor <= 0) throw new ArithmeticException("El logaritmo requiere valores positivos");
+      //  return Math.log10(valor);
+   // }
 }
