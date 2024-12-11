@@ -75,7 +75,7 @@ public class VentanaCalculadora extends JFrame {
             "7", "8", "9", "/",
             "4", "5", "6", "*",
             "1", "2", "3", "-",
-            "0", ".", "+"
+            "0", ".", "+", "="
         };
         
         // Disposición y características de los botones numéricos y de operaciones
@@ -98,17 +98,24 @@ public class VentanaCalculadora extends JFrame {
         public void actionPerformed(ActionEvent e) {
         	// Se captura la acción realizada como entrada
             String comando = e.getActionCommand();
+            
+            String textoActual = pantalla.getText();
 
             // Switch donde se decide la acción según el boton
             switch (comando) {
                 case "Borrar":
-                    // Elimina el último carácter del texto en la pantalla
-                    String textoActual = pantalla.getText();
-                    
                     // Comprueba si hay algún elemento que borrar
                     if (!textoActual.isEmpty()) {
                     	// Borra el último elemento en la pantalla
                         pantalla.setText(textoActual.substring(0, textoActual.length() - 1));
+                    }
+                    
+                    break;
+                case "Borrar Todo":
+                    // Comprueba si hay algún elemento que borrar
+                    if (!textoActual.isEmpty()) {
+                    	// Borra el último elemento en la pantalla
+                    	pantalla.setText("");
                     }
                     
                     break;
@@ -117,6 +124,14 @@ public class VentanaCalculadora extends JFrame {
                     System.exit(0);
                     
                     break;
+                case "=":
+                	/* TODO
+                	 * Se debe recorrer el contenido de la pantalla
+                	 * para identificar un operando 1, un operador y un operando 2
+                	 * y llamar a la función correspondiente de funcionalidad pasandole
+                	 * esos dos operandos
+                	 *  */
+                	break;         
                 default:
                 	 // Agrega el texto del botón presionado al display
                     pantalla.setText(pantalla.getText() + comando);
