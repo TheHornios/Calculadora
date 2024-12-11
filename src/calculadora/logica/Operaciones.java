@@ -115,4 +115,29 @@ public class Operaciones{
      //   if (valor <= 0) throw new ArithmeticException("El logaritmo requiere valores positivos");
       //  return Math.log10(valor);
    // }
+    
+    /**
+     * Calcula el factorial de un número entero no negativo.
+     * El factorial de un número n (denotado como n!) es el producto de todos los enteros
+     * positivos menores o iguales a n. Por ejemplo, 5! = 5 * 4 * 3 * 2 * 1.
+     * 
+     * @param n el número del cual se desea calcular el factorial. Debe ser mayor o igual a 0.
+     * @return el valor del factorial de n.
+     * @throws IllegalArgumentException si n es un número negativo, ya que el factorial
+     *                                   no está definido para números negativos.
+     */
+    public long calcularFactorial(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException("El factorial no está definido para números negativos.");
+        }
+        
+        long resultado = 1;
+        
+        // Iteramos desde 1 hasta n, multiplicando los valores
+        for (int i = 1; i <= n; i++) {
+            resultado *= i;
+        }
+        
+        return resultado;
+    }
 }
