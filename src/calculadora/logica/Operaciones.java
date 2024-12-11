@@ -1,5 +1,6 @@
 package calculadora.logica;
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class Operaciones{
 
@@ -139,5 +140,42 @@ public class Operaciones{
         }
         
         return resultado;
+    }
+    
+    /**
+     * Calcula todos los números primos hasta un número n dado.
+     * Un número primo es un número mayor que 1 que solo tiene dos divisores: 1 y él mismo.
+     * 
+     * @param n el límite superior hasta el cual se desea encontrar los números primos.
+     * @return una lista de números primos hasta n.
+     * @throws IllegalArgumentException si n es menor que 2, ya que no existen números primos
+     *                                   menores que 2.
+     */
+    public List<Integer> obtenerNumerosPrimos(int n) {
+        if (n < 2) {
+            throw new IllegalArgumentException("El límite debe ser mayor o igual a 2 para encontrar números primos.");
+        }
+
+        List<Integer> primos = new ArrayList<>();
+
+        // Recorremos los números desde 2 hasta n para verificar si son primos
+        for (int i = 2; i <= n; i++) {
+            boolean esPrimo = true;
+
+            // Verificamos si el número i es divisible por algún número entre 2 y la raíz cuadrada de i
+            for (int j = 2; j <= Math.sqrt(i); j++) {
+                if (i % j == 0) {
+                    esPrimo = false;
+                    break;  // Si encontramos un divisor, no es primo
+                }
+            }
+
+            // Si es primo, lo agregamos a la lista
+            if (esPrimo) {
+                primos.add(i);
+            }
+        }
+
+        return primos;
     }
 }
