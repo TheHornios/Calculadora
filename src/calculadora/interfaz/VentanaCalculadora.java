@@ -21,7 +21,7 @@ public class VentanaCalculadora extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        // TODO Panel para el display
+        // Panel para el display
         pantalla = new JTextField();
         pantalla.setFont(new Font("Arial", Font.BOLD, 24));
         pantalla.setHorizontalAlignment(JTextField.RIGHT);
